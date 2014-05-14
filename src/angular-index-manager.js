@@ -56,6 +56,10 @@
 			 * @return {IndexManager}
 			 */
 			setIndex: function (index, direction) {
+				if (index > this.maxIndex) {
+					throw new RangeError('index provided cannot be larger than the max index');
+				}
+				
 				// set a last index for point of references in `action`
 				this.lastIndex = this.index;
 				// defined new index
