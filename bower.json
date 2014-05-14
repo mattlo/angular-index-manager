@@ -1,0 +1,17 @@
+{
+	"name": "angular-index-manager",
+	"version": "1.0.0",
+	"main": "angular-index-manager.js",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components"
+	],
+	"dependencies": {
+		"angular": "1.2.16",
+		"angular-mocks": "1.2.16"
+	},
+	"js": [
+		"src/*.js"
+	]
+}
