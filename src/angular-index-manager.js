@@ -51,8 +51,9 @@
 			},
 			/**
 			 * Sets index, defines previous index, invokes `action`
-			 * @param {number} index
+			 * @param {Number} index
 			 * @param {IndexManager.Direction} direction
+			 * @return {IndexManager}
 			 */
 			setIndex: function (index, direction) {
 				// set a last index for point of references in `action`
@@ -63,10 +64,12 @@
 				this.action(direction || null);
 				// fire onIndexChange event
 				this.onIndexChange(index, this.lastIndex);
+				
+				return this;
 			},
 			/**
 			 * Return current index
-			 * @return {number}
+			 * @return {Number}
 			 */
 			getIndex: function () {
 				return this.index;
@@ -79,15 +82,17 @@
 			/**
 			 * Set max index
 			 * @param {number} number
-			 * @return {undefined}
+			 * @return {IndexManager}
 			 */
 			setMaxIndex: function (number) {
 				this.maxIndex = number;
+				
+				return this;
 			},
 			/**
 			 * Set max index
 			 * @param {number} number
-			 * @return {undefined}
+			 * @return {Number}
 			 */
 			getMaxIndex: function (number) {
 				return this.maxIndex;
@@ -95,10 +100,21 @@
 			/**
 			 * Set event for on index change
 			 * @param {Function} event
-			 * @return {undefined}
+			 * @return {IndexManager}
 			 */
 			setOnIndexChange: function (event) {
 				this.onIndexChange = event;
+				
+				return this;
+			},
+			/**
+			 * @param {Boolean} isInfinite
+			 * @return {IndexManager}
+			 */
+			setIsInfinite: function (isInfinite) {
+				this.isInfinite = isInfinite;
+				
+				return this;
 			}
 		};
 		
