@@ -94,11 +94,10 @@
 				return this;
 			},
 			/**
-			 * Set max index
-			 * @param {number} number
+			 * Get max index
 			 * @return {Number}
 			 */
-			getMaxIndex: function (number) {
+			getMaxIndex: function () {
 				return this.maxIndex;
 			},
 			/**
