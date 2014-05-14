@@ -9,5 +9,8 @@
     "grunt-karma": "~0.8.2",
     "karma-jasmine": "~0.1.5",
     "karma-phantomjs-launcher": "~0.1.4"
+  },
+  "devDependencies": {
+    "karma-spec-reporter": "0.0.12"
   }
 }
