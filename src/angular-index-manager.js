@@ -65,7 +65,7 @@
 				// defined new index
 				this.index = index;
 				// invoke action which may have animation
-				this.action(direction || null);
+				this.action(direction);
 				// fire onIndexChange event
 				this.onIndexChange(index, this.lastIndex);
 				
