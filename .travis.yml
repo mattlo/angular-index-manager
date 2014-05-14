@@ -7,4 +7,4 @@ install:
     - npm install
     - bower install
     
-before_script: grunt build -v
+before_script: grunt -v
