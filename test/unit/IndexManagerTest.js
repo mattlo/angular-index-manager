@@ -107,5 +107,59 @@ describe('IndexManager Tests', function () {
 		expect(im.getIndex()).toBe(10);
 	});
 	
+	it('index change event', function () {
+		var im = new IndexManager,
+			value = 1;
+		
+		im.setMaxIndex(10).setIsInfinite(true).setOnIndexChange(function () {
+			value += 1;
+		});
+		
+		im.next();		
+		im.next();		
+		im.next();
+		
+		expect(value).toBe(4);
+	});
+	
+	it('validate abstract action method creation and direction', function () {
+		var expects = null;
+		
+		// create new object inheriting from IndexManager
+		function Carousel () {
+			this.maxIndex = 10;
+			this.isInfinite = true;
+		}
+		
+		Carousel.prototype = new IndexManager;
+		
+		Carousel.prototype.action = function (direction) {
+			expect(direction === expects).toBe(true);
+		};
+		
+		var carousel = new Carousel;
+		
+		expects = carousel.Direction.Right;
+		carousel.next();
+		
+		expects = carousel.Direction.Left;
+		carousel.back();
+		
+		expects = carousel.Direction.Left;
+		carousel.back();
+		
+		expects = carousel.Direction.Left;
+		carousel.back();
+		
+		expects = carousel.Direction.Right;
+		carousel.next();
+		
+		expects = carousel.Direction.Right;
+		carousel.next();
+		
+		expects = carousel.Direction.Right;
+		carousel.next();
+	});
+	
 	
 });
